@@ -14,13 +14,13 @@ namespace RouteplannerTest
         public static String PostalCode(string lat, string lon)
         {
             GetRequest("https://nominatim.openstreetmap.org/reverse?format=xml&&email=svenhilltree@gmail.com&lat=" + lon + "&lon=" + lat);
-            Console.Read();
+            Console.ReadKey();
             return plz;
         }
         async static void GetRequest(string url)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage responseNew = await client.GetAsync(url);
+            HttpResponseMessage responseNew = client.GetAsync(url).Result;
             HttpContent contentNew = responseNew.Content;
             plz = await contentNew.ReadAsStringAsync();
             plz = getBetween(plz, "<postcode>", "</postcode>");
