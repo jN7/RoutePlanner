@@ -57,7 +57,7 @@ namespace RouteplannerTest
         public static List<String> dbConnection(String plz)
         {
             List<String> evsesData = new List<String>();                                                                                                  
-            string queryString = "SELECT DISTINCT TOP 30 xkoord,ykoord FROM  [st_data].[se].basisinfo where xkoord <> '' and ykoord <> '' and (PLZ Like '" + plz.Substring(0,2) + "%') and (land = 'D' or land = 'DE')";
+            string queryString = "SELECT DISTINCT TOP 20 xkoord,ykoord FROM  [st_data].[se].basisinfo where xkoord <> '' and ykoord <> '' and (PLZ Like '" + plz.Substring(0,2) + "%') and (land = 'D' or land = 'DE')";
             string connectionString = "Server=ymtestdb1;Database=;User Id=se;Password=se;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -104,18 +104,19 @@ namespace RouteplannerTest
             //string queryString = "SELECT * FROM  [st_data].[se].basisinfo where xkoord <> '' and ykoord <> '' and xkoord between " + (lat - 20000) + " and " + (lat + 20000) + " and ykoord between  " + (lon - 20000) + " and  " + (lon + 20000);
             string connectionString = "Server=ymtestdb1;Database=;User Id=se;Password=se;";
             Int32 count = 0;
-            while (count <= 1)
+            x = 0;
+            while (count < 2)
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     x = x + 1000;
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT (DISTINCT xkoord) FROM [st_data].[se].basisinfo JOIN [st_data].[se].PlugInfo on [st_data].[se].basisinfo.ebinr = [st_data].[se].pluginfo.EBINr JOIN [st_data].[se].PlugSearch on [st_data].[se].pluginfo.plugid = [st_data].[se].plugsearch.plugid inner join [st_data].[se].BCKlartext on [st_data].[se].PlugSearch.PlugBCCode = [st_data].[se].BCKlartext.BCCode where xkoord between " + (lat - x) + " and " + (lat + x) + " and ykoord between " + (lon - x) + " and " + (lon + x) + " and [st_data].[se].BCKlartext.Beschreibung LIKE '%Typ2%'", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT (DISTINCT xkoord) FROM [st_data].[se].basisinfo JOIN [st_data].[se].PlugInfo on [st_data].[se].basisinfo.ebinr = [st_data].[se].pluginfo.EBINr JOIN [st_data].[se].PlugSearch on [st_data].[se].pluginfo.plugid = [st_data].[se].plugsearch.plugid inner join [st_data].[se].BCKlartext on [st_data].[se].PlugSearch.PlugBCCode = [st_data].[se].BCKlartext.BCCode where xkoord between " + (lat -x ) + " and " + (lat + x) + " and ykoord between " + (lon - x) + " and " + (lon + x) + " and [st_data].[se].BCKlartext.Beschreibung LIKE '%Typ2%'", connection);
                     connection.Open();
                     count = Convert.ToInt32(cmd.ExecuteScalar());
                     
                 }
             }
-            string queryString = "SELECT DISTINCT xkoord,ykoord FROM [st_data].[se].basisinfo JOIN [st_data].[se].PlugInfo on [st_data].[se].basisinfo.ebinr = [st_data].[se].pluginfo.EBINr JOIN [st_data].[se].PlugSearch on [st_data].[se].pluginfo.plugid = [st_data].[se].plugsearch.plugid inner join [st_data].[se].BCKlartext on [st_data].[se].PlugSearch.PlugBCCode = [st_data].[se].BCKlartext.BCCode where xkoord between " + (lat - x) + " and " + (lat + x) + " and ykoord between " + (lon - x) + " and " + (lon + x) + " and [st_data].[se].BCKlartext.Beschreibung LIKE '%Typ2%'";
+            string queryString = "SELECT DISTINCT TOP 20 xkoord,ykoord FROM [st_data].[se].basisinfo JOIN [st_data].[se].PlugInfo on [st_data].[se].basisinfo.ebinr = [st_data].[se].pluginfo.EBINr JOIN [st_data].[se].PlugSearch on [st_data].[se].pluginfo.plugid = [st_data].[se].plugsearch.plugid inner join [st_data].[se].BCKlartext on [st_data].[se].PlugSearch.PlugBCCode = [st_data].[se].BCKlartext.BCCode where xkoord between " + (lat -x) + " and " + (lat + x) + " and ykoord between " + (lon - x) + " and " + (lon + x) + " and [st_data].[se].BCKlartext.Beschreibung LIKE '%Typ2%'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);

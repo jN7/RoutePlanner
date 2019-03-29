@@ -216,7 +216,6 @@ C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\Newtonsoft.Json.xml
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\SqlServerConnections.pdb
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\SqlServerConnections.dll.config
-C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\obj\Debug\RoutePlannerTest.csprojAssemblyReference.cache
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\obj\Debug\Project1.exe.config
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\obj\Debug\RoutePlannerTest.csproj.CoreCompileInputs.cache
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\obj\Debug\RoutePlannerTest.csproj.CopyComplete
@@ -274,3 +273,4 @@ C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\System.Buffers.xml
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\julien.noichl\source\repos\RoutePlannerTest\RoutePlannerTest\obj\Debug\RoutePlannerTest.csprojAssemblyReference.cache
